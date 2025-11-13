@@ -1,4 +1,4 @@
-# Wind-Friends
+# WindFriends
 
 - Käyttäjä pystyy luomaan tunnuksen ja kirjautumaan sisään sovellukseen.
 - Käyttäjä pystyy lisäämään, muokkaamaan ja poistamaan ehtoduksia purjelautailu-tapaamisista.
