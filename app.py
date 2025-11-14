@@ -43,14 +43,17 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    sql = "SELECT password_hash FROM users WHERE username = ?"
+    sql = "SELECT id, password_hash FROM users WHERE username = ?"
     try:
-        password_hash = db.query(sql, [username])[0][0]
+        result = db.query(sql, [username])[0]
+        user_id = result["id"]
+        password_hash = result["password_hash"]
     except IndexError:
         return "VIRHE: käyttäjää ei ole olemassa <br /><a href='/'>back</a> <br /><a href='/register'>register</a>"
 
     if check_password_hash(password_hash, password):
         session["username"] = username
+        session["user_id"] = user_id
         return redirect("/")
     else:
         return "VIRHE: väärä tunnus tai salasana <br /><a href='/'>back</a>"
@@ -59,4 +62,22 @@ def login():
 @app.route("/logout")
 def logout():
     del session["username"]
+    return redirect("/")
+
+
+@app.route("/new_meeting")
+def new_meeting():
+    return render_template("new_meeting.html")
+
+
+@app.route("/create_meeting", methods=["POST"])
+def create_meeting():
+    title = request.form["title"]
+    gear = request.form["gear"]
+    date = request.form["date"]
+    description = request.form["description"]
+    user_id = session["user_id"]
+
+    sql = "INSERT INTO meetings (title, gear, date, description, user_id) VALUES (?, ?, ?, ?, ?)"
+    db.execute(sql, [title, gear, date, description, user_id])
     return redirect("/")

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>New meeting</title>
+</head>
+
+<body>
+    <h1>New meeting</h1>
+    <form action="/create_meeting" method="POST">
+    <p>
+        Title: <br />
+        <p>Give your suggestion a name.</p>
+        <input type="text" name="title" required/>
+    </p>
+    <p>
+        Gear: <br />
+        <p>What gear do you use?</p>
+        <input type="text" name="gear" required/>
+    </p>
+    <p>
+        Date: <br />
+        <p>When do you want to meet?</p>
+        <input type="datetime-local" name="date" required>
+    </p>
+    <p>
+        Description: <br />
+        <p>Who are you? What do you want to do?</p>
+        <textarea name='description' rows="5" cols="40"></textarea>
+    </p>
+    <input type="submit" value="Suggest" />
+  </form>
+</body>
+
+</html>

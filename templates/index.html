@@ -2,34 +2,41 @@
 <html>
 
 <head>
-  <title>Kirjautuminen</title>
+  <title>WindFriends</title>
 </head>
 
 <body>
-  {% if session.username %}
-  <p>
-    Olet kirjautunut nimellä {{ session.username }}
-  </p>
-  <p>
-    <a href="/logout">Kirjaudu ulos</a>
-  </p>
-  {% else %}
-  <form action="/login" method="post">
+    <h1>WindFriends</h1>
+    {% if session.username %}
     <p>
-      Tunnus: <br />
-      <input type="text" name="username" required/>
+        Olet kirjautunut nimellä {{ session.username }}, id-numerosi on {{ session.user_id }}
     </p>
     <p>
-      Salasana: <br />
-      <input type="password" name="password" required/>
+        <a href="/logout">Kirjaudu ulos</a>
     </p>
-    <input type="submit" value="Kirjaudu" />
-  </form>
-  <p>
-    <a href='/register'>Register</a>
-  </p>
-  {% endif %}
+    <p>
+        <a href="/new_meeting">Suggest a meeting</a>
+    </p>
+    {% else %}
+    <p>
+        Log in to view and suggest meetings
+    </p>
+    <form action="/login" method="post">
+        <p>
+        Tunnus: <br />
+        <input type="text" name="username" required/>
+        </p>
+        <p>
+        Salasana: <br />
+        <input type="password" name="password" required/>
+        </p>
+        <input type="submit" value="Kirjaudu" />
+    </form>
+    <p>
+        <a href='/register'>Register</a>
+    </p>
+    {% endif %}
 
-</body>
+    </body>
 
-</html>
+    </html>
