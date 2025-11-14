@@ -37,6 +37,14 @@
     </p>
     {% endif %}
 
+    <h2>Meetings</h2>
+    <ul>
+        {%for meeting in meetings%}
+        <li>
+            <a href="/meeting/{{meeting.id}}">{{meeting.title}}</a>
+        </li>
+        {%endfor%}
+    </ul>
     </body>
 
     </html>

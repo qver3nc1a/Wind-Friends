@@ -13,7 +13,8 @@ app.secret_key = config.secret_key
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    all_meetings = meetings.get_meetings()
+    return render_template("index.html", meetings=all_meetings)
 
 
 @app.route("/register")
@@ -82,3 +83,9 @@ def create_meeting():
     meetings.add_meeting(title, gear, date, description, user_id)
 
     return redirect("/")
+
+
+@app.route("/meeting/<int:meeting_id>")
+def show_meeting(meeting_id):
+    meeting = meetings.get_meeting(meeting_id)
+    return render_template("show_meeting.html", meeting=meeting)
