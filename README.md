@@ -1,10 +1,25 @@
 # WindFriends
 
-- Käyttäjä pystyy luomaan tunnuksen ja kirjautumaan sisään sovellukseen.
-- Käyttäjä pystyy lisäämään, muokkaamaan ja poistamaan ehtoduksia purjelautailu-tapaamisista.
-- Käyttäjä pystyy lisäämään kuvia ehdotukseen.
-- Käyttäjä näkee sovellukseen lisätyt ehdotukset.
-- Käyttäjä pystyy etsimään ehdotuksia hakusanalla (esimerkiksi purjeen/laudan tyyppi, arvioitu tuulen nopeus, ranta).
-- Sovelluksessa on käyttäjäsivut, jotka näyttävät tilastoja ja käyttäjän lisäämät ehdotukset.
-- Käyttäjä pystyy valitsemaan ilmoitukselle yhden tai useamman luokittelun (esim. varusteiden tiedot, päivän arvioitu tuulen nopeus, ranta).
-- Käyttäjä pystyy merkkaamaan, että tykkää ehdotuksesta ja haluaisi osallistua purjelautailu-tapaamiseen.
+Find other wind lovers and meet up!
+
+## Overview
+WindFriends is a web application built with Python Flask that helps users who love windsurfing discover like-minded people, meet up and catch the best wind gusts together
+
+## Features
+- Accounts: users can create an account
+- Suggest a meeting: suggest a time and place, tell them which gear you prefer and briefly explain what you'd like to do. Feel free to edit the details later
+- View meetings: check out what others have suggested
+
+## Installation guide
+### Install Flask
+```
+$ pip install flask
+```
+### Initialize a new database
+```
+$ sqlite3 database.db < schema.sql
+```
+### Run the application
+```
+$ flask run
+```
